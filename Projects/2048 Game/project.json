@@ -1,0 +1,8 @@
+{
+  "title": "2048 Game",
+  "description": "The classic 2048 puzzle with keyboard and swipe input, smooth tile transitions and best-score persistence.",
+  "author": { "name": "Web Dev Projects", "github": "cu-sanjay" },
+  "tags": ["game", "canvas-free", "vanilla-js"],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

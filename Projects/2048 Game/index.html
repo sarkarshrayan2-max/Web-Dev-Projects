@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>2048</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>2048</h1>
+      <div class="scores">
+        <div class="score"><span>Score</span><strong id="score">0</strong></div>
+        <div class="score"><span>Best</span><strong id="best">0</strong></div>
+        <button id="reset" class="btn">New game</button>
+      </div>
+    </header>
+    <p class="hint">Use arrow keys or swipe. Merge tiles to reach <strong>2048</strong>.</p>
+    <div id="board" class="board" tabindex="0" aria-label="2048 board">
+      <div class="cells" aria-hidden="true">
+        <!-- 16 background cells -->
+      </div>
+      <div id="tiles" class="tiles"></div>
+    </div>
+    <div id="msg" class="msg" hidden></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
