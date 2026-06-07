@@ -8,6 +8,8 @@ const themeToggle = document.getElementById("theme-toggle");
 const sortSelect = document.getElementById("sort-select");
 const tagbar = document.getElementById("tagbar");
 const empty = document.getElementById("empty");
+const topnavLinks = Array.from(document.querySelectorAll('.topnav a[href^="#"]'));
+const pageSections = Array.from(document.querySelectorAll('main section[id]'));
 
 const statCount = document.getElementById("stat-count");
 const statUpdated = document.getElementById("stat-updated");
@@ -603,6 +605,48 @@ if (sortSelect) {
     render();
   });
 }
+
+function updateActiveNavbarLink(targetHash) {
+  const hash = typeof targetHash === "string" ? targetHash : window.location.hash || "#projects";
+  const target = pageSections.find((section) => `#${section.id}` === hash) ? hash : "#projects";
+
+  topnavLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === target;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function syncNavbarOnScroll() {
+  const offset = window.scrollY + window.innerHeight * 0.25;
+  let currentHash = "#projects";
+
+  pageSections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (offset >= sectionTop) {
+      currentHash = `#${section.id}`;
+    }
+  });
+
+  updateActiveNavbarLink(currentHash);
+}
+
+window.addEventListener("hashchange", updateActiveNavbarLink);
+window.addEventListener("scroll", () => {
+  window.requestAnimationFrame(syncNavbarOnScroll);
+}, { passive: true });
+
+topnavLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    setTimeout(updateActiveNavbarLink, 0);
+  });
+});
+
+updateActiveNavbarLink();
 
 // Dismiss hover card on scroll or click outside
 document.addEventListener("scroll", dismissHoverCard, true);

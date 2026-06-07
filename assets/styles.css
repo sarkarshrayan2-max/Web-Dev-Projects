@@ -169,6 +169,16 @@ code {
   font-weight: 500;
 }
 .topnav a:hover { background: var(--surface-2); color: var(--ink); }
+.topnav a.active,
+.topnav a[aria-current="page"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.topnav a.active:hover,
+.topnav a[aria-current="page"]:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
 .theme-toggle {
   background: transparent;
   border: none;
