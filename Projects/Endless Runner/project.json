@@ -1,0 +1,8 @@
+{
+  "title": "Endless Runner",
+  "description": "A cyberpunk endless runner built with HTML5 Canvas and vanilla JavaScript — gravity jump physics, procedural obstacle spawning, AABB collision detection, progressive speed scaling, and localStorage persistence.",
+  "author": { "name": "Girish Madarkar", "github": "Girish0902" },
+  "tags": ["game", "canvas", "arcade", "endless-runner", "vanilla-js", "localstorage"],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}
