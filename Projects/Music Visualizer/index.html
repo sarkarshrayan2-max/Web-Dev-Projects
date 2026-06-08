@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="onboard" class="onboard">
+    <span>&#x1F3B5; Drop an audio file or click anywhere to start</span>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <div id="ui">
+    <div class="ui-row">
+      <label class="file-btn">
+        <input type="file" id="fileInput" accept="audio/*">
+        <span>Open</span>
+      </label>
+      <button id="playBtn" class="ctrl-btn" disabled aria-label="Play/Pause">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+      <button id="themeBtn" class="ctrl-btn" aria-label="Toggle theme">Wave</button>
+      <div class="slider-group">
+        <label>Sensitivity</label>
+        <input type="range" id="sensitivity" min="0.5" max="2.5" step="0.1" value="1.4">
+      </div>
+    </div>
+    <div class="ui-row meta">
+      <span id="trackName">No file loaded</span>
+      <span id="statusBadge">&#x25CF; idle</span>
+    </div>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
