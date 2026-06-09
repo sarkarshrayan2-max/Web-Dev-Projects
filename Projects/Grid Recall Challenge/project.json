@@ -1,0 +1,16 @@
+{
+  "title": "Grid Recall Challenge",
+  "description": "A visual memory game where you must memorize and perfectly reproduce highlighted patterns on an expanding grid.",
+  "author": {
+    "name": "MistryVishwa",
+    "github": "MistryVishwa"
+  },
+  "tags": [
+    "game",
+    "memory",
+    "javascript",
+    "puzzle"
+  ],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

@@ -1,0 +1,8 @@
+{
+  "title": "World Clock Dashboard",
+  "description": "A real-time world clock dashboard with Intl.DateTimeFormat localization, day/night visual states, relative offset badges, 12h/24h toggle, and localStorage persistence.",
+  "author": { "name": "Girish Madarkar", "github": "Girish0902" },
+  "tags": ["clock", "timezone", "dashboard", "vanilla-js", "localstorage", "intl"],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

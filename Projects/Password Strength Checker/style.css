@@ -1,0 +1,189 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-deep: #04060f;
+  --bg-surface: #080c1a;
+  --bg-card: #0c1124;
+  --border: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(255, 255, 255, 0.1);
+  --text: #e2e8f0;
+  --text-dim: #64748b;
+  --text-muted: #475569;
+  --weak: #ef4444;
+  --medium: #f59e0b;
+  --strong: #10b981;
+  --bulletproof: #06b6d4;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.card-header .brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 4px 0 12px;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper:focus-within { border-color: var(--text-muted); }
+
+#pwInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 0;
+  letter-spacing: 0.5px;
+}
+
+#pwInput::placeholder { color: var(--text-muted); font-size: 13px; letter-spacing: 0; }
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+.hidden { display: none; }
+
+#strengthSection { display: flex; flex-direction: column; gap: 8px; }
+
+#barTrack {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-deep);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#barFill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: width 0.3s ease, background 0.3s ease;
+  background: var(--text-muted);
+}
+
+#scoreRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+#strengthLabel { font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+#scoreText { color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+#checksPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  transition: color 0.25s;
+}
+
+.check-item.checked { color: var(--text); }
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s;
+}
+
+.check-item.checked .check-icon {
+  border-color: var(--strong);
+  background: var(--strong);
+}
+
+.check-item.checked .check-icon::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+#feedback {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  min-height: 18px;
+  transition: color 0.3s;
+}
+
+@media (max-width: 480px) {
+  #app { padding: 12px; }
+  #card { padding: 20px 16px; gap: 16px; }
+  #pwInput { font-size: 14px; padding: 10px 0; }
+}

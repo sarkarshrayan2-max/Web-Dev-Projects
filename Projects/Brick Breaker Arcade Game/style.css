@@ -81,7 +81,6 @@ body {
   aspect-ratio: 600 / 400;
   background: #0d0d1a;
   touch-action: none;
-  cursor: none;
 }
 
 .overlay {

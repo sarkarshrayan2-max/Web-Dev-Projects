@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Explorer Dashboard</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="ph ph-rocket-launch text-primary"></i> API Explorer</h2>
+        <button id="mobileMenuClose" class="icon-btn mobile-only"><i class="ph ph-x"></i></button>
+      </div>
+
+      <div class="search-container">
+        <i class="ph ph-magnifying-glass search-icon"></i>
+        <input type="text" id="apiSearch" placeholder="Search APIs...">
+      </div>
+
+      <div class="sidebar-content">
+        <div class="sidebar-section">
+          <h3>Categories</h3>
+          <ul class="api-list" id="apiList">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+        
+        <div class="sidebar-section mt-auto">
+          <h3>History</h3>
+          <ul class="history-list" id="historyList">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="themeToggle" class="theme-btn">
+          <i class="ph ph-moon"></i> <span>Dark Mode</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Top Bar (Mobile menu toggle) -->
+      <header class="topbar mobile-only">
+        <button id="mobileMenuBtn" class="icon-btn"><i class="ph ph-list"></i></button>
+        <h2 class="mobile-title">API Explorer</h2>
+      </header>
+
+      <div class="dashboard-grid">
+        
+        <!-- Left Column: Request & Info -->
+        <div class="dashboard-left">
+          
+          <!-- Request Panel -->
+          <section class="panel request-panel">
+            <div class="panel-header">
+              <h3><i class="ph ph-paper-plane-tilt"></i> Request API</h3>
+            </div>
+            
+            <form id="apiForm" class="request-form">
+              <div class="url-input-group">
+                <select id="methodSelect" class="method-select" title="HTTP Method">
+                  <option value="GET">GET</option>
+                  <option value="POST" disabled>POST</option>
+                  <option value="PUT" disabled>PUT</option>
+                  <option value="DELETE" disabled>DELETE</option>
+                </select>
+                <input type="url" id="apiUrlInput" placeholder="https://api.example.com/data" required autocomplete="off">
+                <button type="submit" class="btn btn-primary" id="sendBtn">
+                  <span>Send</span>
+                  <i class="ph ph-arrow-right"></i>
+                </button>
+              </div>
+
+              <!-- Query Params Builder -->
+              <div class="params-section">
+                <div class="params-header" id="toggleParamsBtn">
+                  <span>Query Parameters</span>
+                  <i class="ph ph-caret-down"></i>
+                </div>
+                <div class="params-body" id="paramsContainer">
+                  <!-- Dynamically populated or manual entry -->
+                  <div class="param-row">
+                    <input type="text" class="param-key" placeholder="Key">
+                    <input type="text" class="param-value" placeholder="Value">
+                    <button type="button" class="icon-btn remove-param text-danger"><i class="ph ph-trash"></i></button>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-ghost mt-2" id="addParamBtn">
+                    <i class="ph ph-plus"></i> Add Parameter
+                  </button>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- Info / Learning Panel -->
+          <section class="panel info-panel">
+            <div class="panel-header">
+              <h3><i class="ph ph-book-open"></i> API Details</h3>
+              <span class="badge" id="apiCategoryBadge">Custom</span>
+            </div>
+            <div class="info-content">
+              <h2 id="infoTitle">Custom Request</h2>
+              <p id="infoDescription">Enter any public API URL above to fetch and explore its data.</p>
+              
+              <div class="info-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Auth Required:</span>
+                  <span class="meta-value" id="infoAuth">Unknown</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">CORS:</span>
+                  <span class="meta-value" id="infoCors">Unknown</span>
+                </div>
+              </div>
+              
+              <a href="#" id="infoLink" target="_blank" class="doc-link hidden">
+                View Documentation <i class="ph ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column: Response Viewer -->
+        <div class="dashboard-right">
+          <section class="panel response-panel">
+            
+            <div class="response-header">
+              <div class="tabs">
+                <button class="tab-btn active" data-tab="body">Response Body</button>
+                <button class="tab-btn" data-tab="headers">Headers</button>
+              </div>
+              <div class="response-actions">
+                <span id="statusBadge" class="status-badge hidden">200 OK</span>
+                <span id="timeBadge" class="time-badge hidden"><i class="ph ph-clock"></i> <span id="timeText">120ms</span></span>
+                <button class="icon-btn" id="copyBtn" title="Copy JSON"><i class="ph ph-copy"></i></button>
+                <button class="icon-btn" id="downloadBtn" title="Download JSON"><i class="ph ph-download-simple"></i></button>
+              </div>
+            </div>
+
+            <div class="response-body">
+              
+              <!-- Empty State -->
+              <div id="emptyState" class="empty-state">
+                <div class="empty-icon-wrap">
+                  <i class="ph ph-terminal-window"></i>
+                </div>
+                <h3>Ready to explore</h3>
+                <p>Select an API from the sidebar or enter a custom URL to see the response here.</p>
+              </div>
+
+              <!-- Loading State -->
+              <div id="loadingState" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Fetching data...</p>
+              </div>
+
+              <!-- Data State -->
+              <div id="dataState" class="data-state hidden">
+                <div class="tab-content active" id="tab-body">
+                  <pre><code id="jsonOutput" class="language-json"></code></pre>
+                </div>
+                <div class="tab-content" id="tab-headers">
+                  <pre><code id="headersOutput" class="language-json"></code></pre>
+                </div>
+              </div>
+
+              <!-- Error State -->
+              <div id="errorState" class="error-state hidden">
+                <i class="ph ph-warning-circle text-danger"></i>
+                <h3 class="text-danger">Request Failed</h3>
+                <p id="errorMessage">Network error or CORS restriction.</p>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

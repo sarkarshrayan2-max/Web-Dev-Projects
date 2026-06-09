@@ -1,14 +1,11 @@
 {
   "title": "Blog",
-  "description": "A full-featured blog application built with React, Vite, Appwrite, Redux Toolkit, and TinyMCE. Supports authentication, post creation, editing, deletion, image uploads, protected routes, and dark mode.",
+  "description": "A clean, minimal static blog platform built with HTML, CSS, and JavaScript. Features dark/light theme, responsive post grid, modal post viewer, tag filtering, and local theme persistence. No build step required.",
   "entry": "index.html",
   "tags": [
-    "react",
-    "appwrite",
     "blog",
-    "redux",
-    "tailwind",
-    "vite"
+    "responsive",
+    "dark-mode"
   ],
   "author": {
     "name": "Aashutosh Rana",

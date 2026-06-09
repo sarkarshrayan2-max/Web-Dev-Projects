@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Precision Angle Challenge Game</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Screen 1: Main Menu -->
+  <div id="main-menu" class="screen active">
+    <div class="menu-container">
+      <div class="logo-wrapper">
+        <svg class="logo-icon" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="140 140" stroke-dashoffset="0" stroke-linecap="round"/>
+          <line x1="50" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <line x1="50" y1="50" x2="65" y2="15" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="10" fill="var(--primary)"/>
+        </svg>
+        <h1>Precision Angle</h1>
+        <p class="subtitle">Test your spatial awareness</p>
+      </div>
+
+      <div class="menu-buttons">
+        <button class="btn btn-primary btn-large" onclick="startGame('solo')">
+          <span class="icon">👤</span> Solo Challenge
+        </button>
+        <button class="btn btn-secondary btn-large" onclick="startGame('pass-and-play')">
+          <span class="icon">👥</span> Pass & Play
+        </button>
+        <button class="btn btn-accent btn-large" onclick="startGame('daily')">
+          <span class="icon">📅</span> Daily Challenge
+        </button>
+        <button class="btn btn-outline" onclick="showLeaderboards()">
+          <span class="icon">🏆</span> Leaderboards
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Game Screen -->
+  <div id="game-screen" class="screen">
+    <div class="game-header">
+      <button class="icon-btn btn-back" onclick="quitGame()" aria-label="Quit game">✖</button>
+      <div class="game-meta">
+        <div class="badge mode-badge" id="current-mode-display">Solo Mode</div>
+        <div class="badge round-badge">Round <span id="round-display">1</span>/5</div>
+        <div class="player-turn-indicator hidden" id="player-turn-display">Player 1's Turn</div>
+      </div>
+    </div>
+
+    <div class="game-content">
+      <div class="target-card">
+        <h2>Draw exactly:</h2>
+        <div class="target-angle" id="target-angle-display">45°</div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="angleCanvas" width="300" height="300"></canvas>
+        <div class="feedback-toast hidden" id="feedback-toast">Perfect!</div>
+      </div>
+      
+      <div class="controls">
+        <p class="hint">Drag the green line to match the target angle.</p>
+        <button class="btn btn-primary btn-huge" id="confirm-btn">Confirm Angle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Round Result Modal -->
+  <div id="round-result-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="round-title">Round Complete</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-label">Target</span>
+          <span class="stat-value" id="res-target">45°</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Your Guess</span>
+          <span class="stat-value" id="res-guess">47°</span>
+        </div>
+        <div class="stat-box error-box">
+          <span class="stat-label">Error</span>
+          <span class="stat-value" id="res-error">2°</span>
+        </div>
+        <div class="stat-box score-box">
+          <span class="stat-label">Points</span>
+          <span class="stat-value text-accent" id="res-points">+980</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-large w-100 mt-4" id="next-round-btn">Next Round</button>
+    </div>
+  </div>
+
+  <!-- Screen 4: Final Results Screen -->
+  <div id="results-screen" class="screen">
+    <div class="results-container">
+      <h1>Game Over!</h1>
+      <p class="mode-text" id="final-mode-text">Solo Challenge</p>
+      
+      <div class="final-score-circle">
+        <span class="score-label">Total Score</span>
+        <span class="score-number" id="final-score-display">0</span>
+      </div>
+
+      <!-- Single Player Stats -->
+      <div class="detailed-stats" id="single-player-stats">
+        <p>Average Error: <strong id="avg-error-display">0°</strong></p>
+      </div>
+
+      <!-- Multiplayer Stats -->
+      <div class="multiplayer-stats hidden" id="multiplayer-stats">
+        <div class="player-result p1-result">
+          <h3>Player 1</h3>
+          <p class="score" id="p1-score-display">0</p>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="player-result p2-result">
+          <h3>Player 2</h3>
+          <p class="score" id="p2-score-display">0</p>
+        </div>
+        <h2 class="winner-text mt-4" id="winner-display">Player 1 Wins!</h2>
+      </div>
+
+      <div class="results-actions mt-4">
+        <button class="btn btn-primary" onclick="showMainMenu()">Play Again</button>
+        <button class="btn btn-outline" id="share-score-btn">Share Score</button>
+      </div>
+    </div>
+    
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas" class="overlay-canvas"></canvas>
+  </div>
+
+  <!-- Screen 5: Leaderboards -->
+  <div id="leaderboard-screen" class="screen">
+    <div class="leaderboard-container">
+      <div class="lb-header">
+        <button class="icon-btn btn-back" onclick="showMainMenu()">✖</button>
+        <h2>🏆 Leaderboards</h2>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchLbTab('solo')">Solo</button>
+        <button class="tab-btn" onclick="switchLbTab('daily')">Daily</button>
+      </div>
+
+      <div class="lb-content">
+        <ul id="lb-list" class="leaderboard-list">
+          <!-- Populated by JS -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "title": "Escape Room Mini Game",
+  "description": "Solve clues, discover hidden objects, and unlock the door by finding the correct escape code.",
+  "author": {
+    "name": "Jagriti-student",
+    "github": "Jagriti-student"
+  },
+  "tags": [
+    "game",
+    "puzzle",
+    "escape-room",
+    "logic",
+    "interactive"
+  ],
+  "entry": "index.html"
+}

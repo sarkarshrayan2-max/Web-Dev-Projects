@@ -1,0 +1,8 @@
+{
+  "title": "Password Strength Checker",
+  "description": "A client-side password strength analyzer with 5 RegEx rule checks, real-time segmented progress bar, strength rating (Weak/Bulletproof), interactive checklist, copy-to-clipboard, and dark cyber terminal UI.",
+  "author": { "name": "Girish Madarkar", "github": "Girish0902" },
+  "tags": ["security", "password-checker", "regex", "clipboard", "vanilla-js"],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

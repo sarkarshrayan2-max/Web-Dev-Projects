@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Clock Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="controls">
+      <div class="control-group">
+        <select class="select" id="citySelect">
+          <option value="">Select a city…</option>
+          <option value="America/New_York">New York</option>
+          <option value="America/Chicago">Chicago</option>
+          <option value="America/Denver">Denver</option>
+          <option value="America/Los_Angeles">Los Angeles</option>
+          <option value="Europe/London">London</option>
+          <option value="Europe/Paris">Paris</option>
+          <option value="Europe/Berlin">Berlin</option>
+          <option value="Europe/Moscow">Moscow</option>
+          <option value="Asia/Dubai">Dubai</option>
+          <option value="Asia/Kolkata">Kolkata</option>
+          <option value="Asia/Singapore">Singapore</option>
+          <option value="Asia/Tokyo">Tokyo</option>
+          <option value="Australia/Sydney">Sydney</option>
+          <option value="Pacific/Auckland">Auckland</option>
+        </select>
+        <button class="btn" id="addBtn">Add</button>
+      </div>
+      <div class="control-group">
+        <label class="toggle" id="formatToggle">
+          <span class="toggle-label">24h</span>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </label>
+      </div>
+    </header>
+
+    <div class="grid" id="grid"></div>
+
+    <footer class="footer" id="footer">
+      <span class="status" id="status">0 cities · synced to local clock</span>
+    </footer>
+
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <p class="modal-text">City already in your dashboard.</p>
+        <button class="btn modal-btn" id="overlayDismiss">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

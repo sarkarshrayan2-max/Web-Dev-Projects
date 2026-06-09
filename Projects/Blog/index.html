@@ -1,13 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo1.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12blog</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>12blog | Minimalist Tech & Ideas</title>
+    <meta name="description" content="A clean, modern blog platform sharing stories on development, design, and performance.">
+    
+    <!-- Dynamic SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%233b82f6'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='system-ui, sans-serif' font-weight='bold'%3E12%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <!-- defer script ensures DOM ready -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" id="logoLink">12blog</a>
+            <nav class="nav">
+                <a href="#posts-section" id="allPostsLink">All Posts</a>
+                <a href="#" id="aboutLink">About</a>
+                <button class="theme-btn" id="themeBtn" aria-label="Dark/Light mode">🌙 Dark</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero section with subtle animation -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Explore ideas, <span class="gradient-text">code & creativity</span></h1>
+                    <p>Stories from the developer universe — clean, curated & insightful.</p>
+                    <a href="#posts-section" class="hero-cta">Start reading →</a>
+                </div>
+            </section>
+
+            <!-- Posts Grid Section -->
+            <section class="posts-section" id="posts-section">
+                <div class="section-header">
+                    <h2 class="section-title">Featured stories</h2>
+                    <div class="posts-count" id="postsCount">6 articles</div>
+                </div>
+                <div class="posts-grid" id="postsGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">12blog</span>
+                    <p>Minimalist thinking · bold writing</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="footerAboutLink">About</a>
+                    <a href="#posts-section">Archive</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> 12blog. Crafted with curiosity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL: Full Post View -->
+    <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="close-btn" id="closePostModalBtn" aria-label="Close">&times;</button>
+            <h1 class="modal-title" id="modalTitle"></h1>
+            <div class="modal-meta" id="modalMeta"></div>
+            <img id="modalImage" class="modal-image" alt="Featured illustration" loading="lazy">
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- MODAL: About -->
+    <div id="aboutModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+        <div class="modal-content about-modal-content">
+            <button class="close-btn" id="closeAboutModalBtn" aria-label="Close">&times;</button>
+            <h2 id="aboutModalTitle" class="about-title">✦ about 12blog</h2>
+            <div class="about-text">
+                <p><strong>12Blog</strong> is a sanctuary for curious minds — blending tech, design, and human-centric storytelling. Born from the idea that good writing and clean code can coexist.</p>
+                <p>We publish deep dives on web development, performance, JavaScript, CSS architecture, and modern tooling. No fluff, just substance.</p>
+                <p>📬 <em>Join the journey:</em> <a href="#" style="color:#3b82f6;">hello@12blog.dev</a> (placeholder)</p>
+                <div class="about-tagline">— write once, inspire many —</div>
+            </div>
+        </div>
+    </div>
+
+</body>
 </html>

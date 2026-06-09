@@ -1,0 +1,8 @@
+{
+  "title": "Music Visualizer",
+  "description": "A real-time audio visualizer using the Web Audio API and Canvas 2D. Features linear bar spectrograph and radial bass ring pulse modes, file upload, and a dark synthwave UI.",
+  "author": { "name": "Girish Madarkar", "github": "Girish0902" },
+  "tags": ["audio", "visualizer", "web-audio-api", "canvas", "vanilla-js"],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

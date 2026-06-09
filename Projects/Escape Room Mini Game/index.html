@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape The Weird World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-blobs">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="container">
+
+    <header>
+        <h1>🎮 Escape The Weird World</h1>
+        <p>
+            Solve ridiculous puzzles, collect passwords,
+            and escape the weirdest rooms ever created.
+        </p>
+    </header>
+
+    <div class="progress-section">
+
+        <div class="progress-info">
+            <span>Progress</span>
+            <span id="progressText">0 / 4 Rooms</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+    </div>
+
+    <div class="room-card">
+
+        <h2 id="roomTitle">
+            🧊 Level 1 - Lazy Apartment
+        </h2>
+
+        <p id="roomDescription">
+            Your apartment is locked.
+            Solve the strange object puzzles and discover the room password.
+        </p>
+
+        <div id="objectGrid" class="object-grid">
+
+            <!-- Dynamic content from JS -->
+
+        </div>
+
+        <div class="password-box">
+
+            <h3>🔑 Room Password</h3>
+
+            <input
+                type="text"
+                id="passwordInput"
+                placeholder="Enter room password"
+            >
+
+            <button id="unlockBtn">
+                Unlock Room
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal()">
+            ✕
+        </button>
+
+        <h2 id="modalTitle"></h2>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+<!-- Success Screen -->
+
+<div id="successScreen" class="success-screen">
+
+    <div class="success-card">
+
+        <h1>🏆 YOU ESCAPED!</h1>
+
+        <p>
+            Congratulations!
+            You survived all the weird rooms.
+        </p>
+
+        <button onclick="location.reload()">
+            Play Again
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

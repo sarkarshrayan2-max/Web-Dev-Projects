@@ -1,0 +1,17 @@
+{
+  "title": "API Explorer Dashboard",
+  "description": "Create a responsive and interactive API Explorer Dashboard using HTML, CSS, and JavaScript that allows users to discover, test, and visualize data from various public APIs directly within the browser.",
+  "author": {
+    "name": "MistryVishwa",
+    "github": "MistryVishwa"
+  },
+  "tags": [
+    "javascript",
+    "frontend",
+    "api",
+    "dashboard",
+    "learning-project"
+  ],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

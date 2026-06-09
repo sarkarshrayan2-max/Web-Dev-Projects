@@ -1,0 +1,10 @@
+{
+  "title": "Odd One Out Game",
+  "entry": "index.html",
+  "author": {
+    "name": "Jagriti",
+    "github": "Jagriti-student"
+  },
+  "tags": ["html-css-js", "game", "logic", "beginner-friendly"],
+  "description": "A simple logic game where users identify the different item from a set of similar items."
+}

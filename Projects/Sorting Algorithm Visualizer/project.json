@@ -1,0 +1,17 @@
+{
+  "title": "Sorting Algorithm Visualizer",
+  "description": "An interactive educational tool that visually demonstrates how sorting algorithms work step-by-step using vertical bars.",
+  "author": {
+    "name": "Devesh Patil",
+    "github": "CuriousForLearningTech"
+  },
+  "tags": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "vanilla-js",
+    "visualization"
+  ],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.png"
+}

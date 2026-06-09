@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="card">
+      <div class="card-header">
+        <span class="brand">&#x1f512; Password Strength</span>
+      </div>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <input type="password" id="pwInput" placeholder="Enter password" autocomplete="off" spellcheck="false">
+          <button id="toggleBtn" class="icon-btn" aria-label="Toggle visibility">
+            <svg id="eyeOpen" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="eyeClosed" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+          <button id="copyBtn" class="icon-btn" aria-label="Copy to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="strengthSection">
+        <div id="barTrack">
+          <div id="barFill"></div>
+        </div>
+        <div id="scoreRow">
+          <span id="strengthLabel">—</span>
+          <span id="scoreText">0 / 5</span>
+        </div>
+      </div>
+
+      <div id="checksPanel">
+        <div class="check-item" data-check="0"><span class="check-icon"></span> At least 12 characters</div>
+        <div class="check-item" data-check="1"><span class="check-icon"></span> Contains lowercase (a&#8209;z)</div>
+        <div class="check-item" data-check="2"><span class="check-icon"></span> Contains uppercase (A&#8209;Z)</div>
+        <div class="check-item" data-check="3"><span class="check-icon"></span> Contains number (0&#8209;9)</div>
+        <div class="check-item" data-check="4"><span class="check-icon"></span> Contains special character</div>
+      </div>
+
+      <div id="feedback"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

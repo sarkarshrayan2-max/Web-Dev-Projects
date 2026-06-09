@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithm Visualizer</title>
+  <meta name="description" content="An interactive educational tool that visually demonstrates how sorting algorithms work step-by-step.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header card">
+      <h1>Sorting Algorithm Visualizer</h1>
+      <p>Learn sorting algorithms step-by-step</p>
+    </header>
+
+    <div class="toolbar card">
+      <div class="toolbar-group">
+        <button id="generate-btn" class="btn primary-btn">Generate New Array</button>
+      </div>
+      
+      <div class="toolbar-group controls-group">
+        <div class="control">
+          <label for="size-slider">Array Size</label>
+          <input type="range" id="size-slider" min="10" max="100" value="50">
+        </div>
+        <div class="control">
+          <label for="speed-slider">Speed</label>
+          <input type="range" id="speed-slider" min="50" max="1000" value="500" dir="rtl">
+        </div>
+      </div>
+
+      <div class="toolbar-group sort-group">
+        <button id="bubble-sort-btn" class="btn secondary-btn">Bubble Sort</button>
+        <button id="selection-sort-btn" class="btn secondary-btn">Selection Sort</button>
+      </div>
+    </div>
+
+    <main class="visualization-area card">
+      <div id="array-container"></div>
+    </main>
+
+    <div id="algorithm-info" class="card info-card hidden">
+      <h2 id="algo-name">Algorithm Name</h2>
+      <div class="algo-stats">
+        <p><strong>Time Complexity:</strong> <span id="algo-time"></span></p>
+        <p><strong>Space Complexity:</strong> <span id="algo-space"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

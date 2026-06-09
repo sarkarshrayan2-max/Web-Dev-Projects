@@ -1,0 +1,16 @@
+{
+  "title": "Precision Angle Challenge Game",
+  "description": "A browser-based game focused on memorizing and accurately recreating angles. Features Solo, Multiplayer (Pass & Play), and Daily Challenge modes with local leaderboards.",
+  "author": {
+    "name": "MistryVishwa",
+    "github": "MistryVishwa"
+  },
+  "tags": [
+    "game",
+    "canvas",
+    "math",
+    "javascript"
+  ],
+  "entry": "index.html",
+  "thumbnail": "thumbnail.svg"
+}

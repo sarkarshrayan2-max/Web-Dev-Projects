@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Grid Recall Challenge</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Screen: Main Menu -->
+    <div id="screen-menu" class="screen active">
+      <div class="menu-content">
+        
+        <div class="logo-area">
+          <div class="logo-grid">
+            <div class="logo-tile"></div>
+            <div class="logo-tile active"></div>
+            <div class="logo-tile"></div>
+            <div class="logo-tile active"></div>
+            <div class="logo-tile"></div>
+            <div class="logo-tile"></div>
+            <div class="logo-tile"></div>
+            <div class="logo-tile active"></div>
+            <div class="logo-tile"></div>
+          </div>
+          <h1>GRID RECALL</h1>
+          <p class="subtitle">A visual memory challenge</p>
+        </div>
+
+        <div class="menu-actions">
+          <button class="btn btn-primary btn-huge" onclick="startGame()">
+            <span>Play Now</span>
+          </button>
+          <button class="btn btn-outline" onclick="showLeaderboards()">
+            <span>🏆 Leaderboards</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Screen: Gameplay -->
+    <div id="screen-game" class="screen">
+      
+      <!-- Heads Up Display -->
+      <div class="hud">
+        <div class="hud-left">
+          <button class="btn-icon" onclick="quitGame()" aria-label="Quit Game">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+          <div class="lives-container" id="lives-display">
+            <span class="life active"></span>
+            <span class="life active"></span>
+            <span class="life active"></span>
+          </div>
+        </div>
+        
+        <div class="hud-center">
+          <div class="level-badge">LVL <span id="level-display">1</span></div>
+        </div>
+
+        <div class="hud-right">
+          <div class="score-container">
+            <div class="score-label">SCORE</div>
+            <div class="score-value" id="score-display">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Game Area -->
+      <div class="game-area">
+        
+        <!-- Status Text (e.g. "Memorize", "Your Turn", "Perfect!") -->
+        <div class="status-container">
+          <h2 id="status-text" class="status-text">Get Ready!</h2>
+        </div>
+
+        <!-- The Grid -->
+        <div class="grid-wrapper">
+          <div id="game-grid" class="game-grid size-3x3 unclickable">
+            <!-- Tiles injected via JS -->
+          </div>
+        </div>
+        
+        <!-- Streak / Progress -->
+        <div class="progress-container">
+          <div class="streak-indicator" id="streak-badge">
+            Streak x<span id="streak-value">1</span>
+          </div>
+          <div class="tiles-remaining">
+            Target: <span id="target-count" class="text-primary">3</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Screen: Game Over Modal -->
+    <div id="modal-game-over" class="modal hidden">
+      <div class="modal-content">
+        <h2 class="game-over-title">GAME OVER</h2>
+        
+        <div class="stats-panel">
+          <div class="stat-row">
+            <span>Level Reached</span>
+            <span class="stat-val highlight" id="final-level">1</span>
+          </div>
+          <div class="stat-row">
+            <span>Final Score</span>
+            <span class="stat-val text-primary" id="final-score">0</span>
+          </div>
+          <div class="stat-row">
+            <span>Highest Streak</span>
+            <span class="stat-val" id="final-streak">x1</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary w-100 mb-3" onclick="startGame()">Play Again</button>
+          <button class="btn btn-outline w-100" onclick="showMainMenu()">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen: Leaderboards -->
+    <div id="screen-leaderboard" class="screen">
+      <div class="lb-container">
+        <div class="lb-header">
+          <button class="btn-icon" onclick="showMainMenu()">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+          <h2>Leaderboards</h2>
+        </div>
+        
+        <div class="lb-body">
+          <ul id="lb-list" class="lb-list">
+            <!-- populated by JS -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /app-container -->
+
+  <script src="script.js"></script>
+</body>
+</html>
