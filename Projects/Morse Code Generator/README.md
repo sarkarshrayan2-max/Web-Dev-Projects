@@ -1,4 +1,4 @@
-# Morse Code Challenge
+# Morse Code Generator
 
 An interactive Morse code learning tool built with HTML, CSS, and JavaScript.
 
