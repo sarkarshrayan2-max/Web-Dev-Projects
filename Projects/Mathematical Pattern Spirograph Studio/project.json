@@ -1,0 +1,10 @@
+{
+  "title": "Mathematical Pattern Spirograph Studio",
+  "description": "An algorithmic canvas playground using geometric roulette math equations to trace complex, mesmerizing Spirograph vector patterns dynamically.",
+  "author": {
+    "name": "Pranav M S Krishnan",
+    "github": "Pranav-MSK"
+  },
+  "tags": ["math", "canvas", "animation", "vanilla-js"],
+  "entry": "index.html"
+}

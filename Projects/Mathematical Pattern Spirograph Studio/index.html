@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematical Pattern Spirograph Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="studio-container">
+    <header class="studio-header">
+      <h1>Spirograph Studio</h1>
+      <p>Harness trigonometric parametric equations to model geometric art vectors dynamically.</p>
+    </header>
+
+    <div class="workspace-layout">
+      <aside class="control-deck">
+        
+        <div class="deck-section">
+          <h3>Spirograph Geometry</h3>
+          
+          <div class="slider-group">
+            <div class="slider-meta">
+              <span>Outer Radius (R: <span id="valR">120</span>)</span>
+            </div>
+            <input type="range" id="radiusOuter" min="40" max="200" value="120">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-meta">
+              <span>Inner Wheel (r: <span id="valr">88</span>)</span>
+            </div>
+            <input type="range" id="radiusInner" min="1" max="150" value="88">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-meta">
+              <span>Pen Offset (p: <span id="valP">70</span>)</span>
+            </div>
+            <input type="range" id="penOffset" min="5" max="150" value="70">
+          </div>
+        </div>
+
+        <div class="deck-section">
+          <h3>Aesthetics & Motion</h3>
+          
+          <div class="slider-group">
+            <div class="slider-meta">
+              <span>Trace Velocity</span>
+            </div>
+            <input type="range" id="traceSpeed" min="5" max="100" value="40">
+          </div>
+
+          <div class="input-group">
+            <label for="gradientPreset">Color Configuration</label>
+            <select id="gradientPreset">
+              <option value="cyber">Cyber Neon (Purple / Pink)</option>
+              <option value="aurora">Aurora Borealis (Green / Cyan)</option>
+              <option value="solar">Solar Flare (Orange / Yellow)</option>
+              <option value="monochrome">Cosmic Ghost (White / Silver)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions-group">
+          <button id="resetBtn" class="btn secondary-btn">Clear Workspace</button>
+          <button id="downloadBtn" class="btn primary-btn">Export PNG Canvas</button>
+        </div>
+
+      </aside>
+
+      <main class="canvas-viewport">
+        <canvas id="spiroCanvas" width="560" height="560"></canvas>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
