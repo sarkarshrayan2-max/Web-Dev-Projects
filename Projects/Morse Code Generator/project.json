@@ -1,5 +1,5 @@
 {
-  "title": "Morse Code Challenge",
+  "title": "Morse Code Generator",
   "description": "An interactive Morse code learning tool featuring text conversion, decoding, audio playback and challenge mode.",
   "author": {
     "name": "Pranav M S Krishnan",
