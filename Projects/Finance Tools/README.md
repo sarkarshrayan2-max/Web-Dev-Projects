@@ -1,4 +1,4 @@
-# Finance Tools — Savings Goal Tracker
+# Finance Tools
 
 A personal savings goal tracker with Canvas concentric ring charts, built with vanilla HTML5, CSS3, and JavaScript (ES6+).
 
