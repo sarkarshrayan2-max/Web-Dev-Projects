@@ -1,0 +1,15 @@
+{
+  "title": "Dijkstra Pathfinding Visualizer",
+  "description": "An ultra-premium, light botanical-themed interactive graph pathfinding visualization platform modeling Dijkstra, A*, BFS, and DFS traversal routing mechanics with live click-and-draw wall grids, custom exploration step-clocks, real-time frontier expansion tracking animations, and raw CSV map data configuration exporters.",
+  "entry": "index.html",
+  "tags": [
+    "Graph-Theory",
+    "Algorithms",
+    "Dijkstra-Shortest-Path",
+    "A-Star-Heuristic"
+  ],
+  "author": {
+    "name": "Shruti Narsulwar",
+    "github": "shrutiii01"
+  }
+}
